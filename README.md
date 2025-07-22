@@ -1,65 +1,68 @@
- 🔐 Hybrid Identity Management System
+🔐 Hybrid Identity Management System
 
-An enterprise-grade hybrid identity management system that integrates Spring Boot APIs with simulated legacy authentication layers and GitHub Actions CI/CD.  
-Designed to model modernization from traditional mainframe auth systems to cloud-native microservices.
-
----
-
-🚀 Tech Stack
-
-- Java 17, Spring Boot 3
-- Shell Scripting (Legacy integration simulation)
-- Maven
-- LDAP mock config
-- Docker
-- GitHub Actions (CI/CD)
+A secure, scalable identity management platform designed to support hybrid infrastructures using microservices architecture. This system enables robust user authentication, role-based access control, and centralized identity governance.
 
 ---
 
- 📂 Project Structure
+📌 Overview
 
-Hybrid-Identity-Management-System/
-├── identity-api/ # Spring Boot backend
-│ ├── Dockerfile
-│ └── pom.xml
-├── legacy-auth-integration/ # Legacy shell scripts
-│ ├── validate_user.sh
-│ └── sync_users.sh
-├── config/ # LDAP mock config
-│ └── ldap-config.properties
-├── .github/workflows/ # CI/CD pipeline
-│ └── build.yml
-└── README.md
-
-
-
- 🔧 Key Modules
-
- ✅ identity-api (Spring Boot)
-- REST API for identity-related operations
-- Container-ready with Docker
-- Maven project (pom.xml included)
-
- 🧾 legacy-auth-integration
-- `validate_user.sh`: Simulates mainframe user validation
-- `sync_users.sh`: Mocks syncing from legacy to modern DB
-
- ⚙️ config (LDAP Simulation)
-- LDAP connection properties for enterprises with directory-based auth
+This project implements a full-stack enterprise-grade identity management system. It integrates user registration, authentication, and permission management with RESTful microservices, ensuring modularity, security, and maintainability.
 
 ---
 
- 🔄 GitHub Actions – CI/CD
+🛠️ Tech Stack
 
-- Automatically builds and tests the Spring Boot backend on every push/pull
-- Located at `.github/workflows/build.yml`
+- **Frontend**: (Optional UI layer or Postman for testing APIs)
+- **Backend**: Java, Spring Boot, Node.js
+- **Database**: SQL Server
+- **Build Tools**: Maven, Gradle
+- **DevOps**: Docker, Azure Pipelines, GitHub Actions
+- **Authentication**: JWT (JSON Web Tokens)
+- **Architecture**: Microservices
 
-```yaml
-- Checks out code
-- Sets up Java 17
-- Runs Maven clean install
-🐳 Docker Instructions
-cd identity-api
-mvn clean package
-docker build -t identity-api .
-docker run -p 8080:8080 identity-api
+---
+
+🚀 Key Features
+
+- ✅ Modular Microservices (Auth, User, Access Control)
+- 🔐 Secure login/logout flow with JWT tokens
+- 👥 Role-Based Access Control (RBAC)
+- 🗃️ SQL-based identity storage with schema validation
+- 🧪 Unit testing with JUnit and Postman collections
+- 🔄 CI/CD pipeline using GitHub Actions and Azure Pipelines
+- 🐳 Docker containerization for deployment
+
+---
+
+🔄 API Endpoints (Sample)
+
+`POST /api/auth/register`  
+Register a new user
+
+`POST /api/auth/login`  
+Login and receive a JWT
+
+`GET /api/user/me`  
+Fetch current authenticated user
+
+`GET /api/access/roles`  
+Fetch available roles and permissions
+
+---
+
+🧪 Testing
+
+- Backend unit tests with **JUnit**
+- Postman test suites for all API endpoints
+- Secure input validations and edge-case tests
+
+---
+
+📦 Deployment
+
+1. Clone the repository  
+2. Set environment variables (see `.env.example`)  
+3. Build using Maven:  
+   ```bash
+   mvn clean install
+
